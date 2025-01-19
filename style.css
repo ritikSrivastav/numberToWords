@@ -1,121 +1,149 @@
 /* Reset some defaults */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Import a clean, modern font (optional) */
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-  
-  /* Ensure html/body fill the viewport */
-  html, body {
-    height: 100%;
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-  }
-  
-  /*
-    Background:
-      - A linear gradient (green/blue overlay)
-      - A money-themed image from Pexels (change URL if you want)
-      - Centered + cover
-  */
-  body {
-    background:
-      linear-gradient(
-        rgba(0, 180, 136, 0.4),
-        rgba(0, 80, 200, 0.5)
-      ),
-      url('https://images.pexels.com/photos/701899/pexels-photo-701899.jpeg?auto=compress&cs=tinysrgb&w=1600')
-      no-repeat center center;
-    background-size: cover;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-  }
-  
-  /* Main container with a glass-like backdrop blur */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Import a clean, modern font (optional) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Ensure html/body fill the viewport */
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+/*
+  Background:
+    - A linear gradient (green/blue overlay)
+    - A money-themed image from Pexels (change URL if you want)
+    - Centered + cover
+*/
+body {
+  background:
+    linear-gradient(
+      rgba(0, 180, 136, 0.4),
+      rgba(0, 80, 200, 0.5)
+    ),
+    url('https://images.pexels.com/photos/701899/pexels-photo-701899.jpeg?auto=compress&cs=tinysrgb&w=1600')
+    no-repeat center center;
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Main container with a glass-like backdrop blur */
+.overlay {
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+  border-radius: 12px;
+
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Heading style */
+.overlay h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Label + input styling */
+.input-group {
+  margin-bottom: 2rem; /* A bigger gap before the output on mobile too */
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.input-group input {
+  width: 100%;
+  font-size: 1.1rem; /* Slightly larger for mobile typing comfort */
+  padding: 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #00b388;
+  box-shadow: 0 0 5px rgba(0, 179, 136, 0.4);
+}
+
+/* The result area (auto-resizes as text grows) */
+.result-box {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  min-height: 80px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow-wrap: break-word;
+
+  text-align: left;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Additional note or hint text */
+.note {
+  font-size: 0.85rem;
+  color: #fff;
+  line-height: 1.4;
+}
+
+/* 
+  Responsive design: 
+   - Larger text on smaller screens
+   - Adjust spacing
+*/
+@media (max-width: 600px) {
   .overlay {
-    width: 100%;
-    max-width: 600px;
-    padding: 2rem;
-    border-radius: 12px;
-    background-color: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    padding: 1.5rem;
   }
-  
-  /* Heading style */
+
   .overlay h1 {
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    color: #fff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    font-size: 1.6rem;
   }
-  
-  /* Label + input styling */
-  .input-group {
-    margin-bottom: 2rem; /* Gap before the output box */
-    text-align: left;
-  }
-  
-  .input-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: #fff;
-  }
-  
+
   .input-group input {
-    width: 100%;
-    font-size: 1rem;
-    padding: 0.6rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    outline: none;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    font-size: 1rem; /* or keep 1.1rem if you prefer bigger text on mobile */
   }
-  
-  .input-group input:focus {
-    border-color: #00b388;
-    box-shadow: 0 0 5px rgba(0, 179, 136, 0.4);
-  }
-  
-  /* The result area (auto-resizes as text grows) */
-  .result-box {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    min-height: 80px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-  
-    background-color: rgba(255, 255, 255, 0.9);
-    overflow-wrap: break-word;
-  
-    text-align: left;
-    font-size: 1rem;
-    color: #333;
-  }
-  
-  /* Additional note or hint text */
+
   .note {
-    font-size: 0.85rem;
-    color: #fff;
+    font-size: 0.8rem;
   }
-  
-  /* Responsive design for smaller screens */
-  @media (max-width: 600px) {
-    .overlay {
-      padding: 1.5rem;
-    }
-  
-    .overlay h1 {
-      font-size: 1.5rem;
-    }
+}
+
+/* 
+  Additional breakpoint for very small devices (optional):
+  E.g. for phones narrower than 400px 
+*/
+@media (max-width: 400px) {
+  .overlay h1 {
+    font-size: 1.4rem;
   }
-  
+
+  .result-box {
+    font-size: 0.9rem;
+  }
+}

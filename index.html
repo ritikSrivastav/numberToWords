@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <title>Dynamic Indian Number to Words</title>
-  <!-- Link the external CSS file -->
+
+  <!-- This meta tag ensures better responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Link to external CSS file -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,14 +20,14 @@
       <input type="text" id="numberInput" placeholder="e.g. 999999999999999999" />
     </div>
 
-    <!-- The gap between input and output can be controlled in CSS -->
+    <!-- Gap before output is controlled by CSS -->
     <div class="result-box" id="resultBox">
-      <!-- The converted words will appear here as you type -->
+      <!-- Converted words will appear here as you type -->
     </div>
 
     <div class="note">
       Works up to "shankh" (10^17). Numbers beyond 9,223,372,036,854,775,807 will still
-      work if your browser fully supports <strong>BigInt</strong>.
+      work if your browser fully supports
     </div>
   </div>
 

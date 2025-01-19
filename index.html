@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dynamic Indian Number to Words</title>
+  <!-- Link the external CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="overlay">
+    <h1>Indian Number to Words Converter (Dynamic)</h1>
+
+    <div class="input-group">
+      <label for="numberInput">Enter a large number:</label>
+      <input type="text" id="numberInput" placeholder="e.g. 999999999999999999" />
+    </div>
+
+    <!-- The gap between input and output can be controlled in CSS -->
+    <div class="result-box" id="resultBox">
+      <!-- The converted words will appear here as you type -->
+    </div>
+
+    <div class="note">
+      Works up to "shankh" (10^17). Numbers beyond 9,223,372,036,854,775,807 will still
+      work if your browser fully supports <strong>BigInt</strong>.
+    </div>
+  </div>
+
+  <!-- Link the external JS file at the bottom, so the DOM is loaded first -->
+  <script src="script.js"></script>
+</body>
+</html>
